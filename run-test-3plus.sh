@@ -13,8 +13,10 @@ EOT
 
 sqlplus / as sysdba @ ./sql.d/${BASE:?}.1.sql | tee ${LOG:?}
 
-# リテラルのSELECT文を10000回連続実行
+# リテラルのSELECT文を10000回連続実行（バインド変数は使用しないがセット処理を含む）
 time ( date ; for i in `seq 1 10000`; do
+                echo "variable B1 number"
+                echo "execute :B1 := ${i}"
                 echo "select * from TAB36 where COL1=${i} ;"
               done | sqlplus TRY/TRY > /dev/null ; date ) >> ${LOG:?} 2>&1
 

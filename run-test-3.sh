@@ -1,6 +1,7 @@
 #!/bin/sh
 BASE=${0##*/}
 BASE=${BASE%.*}
+banner $BASE
 LOG=${0##*/}.log
 
 cat <<EOT > ./sql.d/${BASE:?}.1.sql
@@ -12,7 +13,7 @@ EOT
 
 sqlplus / as sysdba @ ./sql.d/${BASE:?}.1.sql | tee ${LOG:?}
 
-# リテラルのSELECT文を10000回連続実行
+# バインド変数のSELECT文を10000回連続実行
 time ( date ; for i in `seq 1 10000`; do
                 echo "variable B1 number"
                 echo "execute :B1 := ${i}"
