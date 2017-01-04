@@ -1,0 +1,44 @@
+
+SQL*Plus: Release 11.2.0.3.0 Production on 木 1月 5 00:33:14 2017
+
+Copyright (c) 1982, 2011, Oracle.  All rights reserved.
+
+
+
+Oracle Database 11g Enterprise Edition Release 11.2.0.3.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+に接続されました。
+SQL> -- バッファ・キャッシュと共有プールにキャッシュされている情報をクリア
+SQL> alter system flush shared_pool ;
+
+システムが変更されました。
+
+SQL> exit 0
+Oracle Database 11g Enterprise Edition Release 11.2.0.3.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing optionsとの接続が切断されました。
+2017年  1月  5日 木曜日 00:33:14 JST
+2017年  1月  5日 木曜日 00:33:51 JST
+
+real	0m37.606s
+user	0m10.186s
+sys	0m0.810s
+
+SQL*Plus: Release 11.2.0.3.0 Production on 木 1月 5 00:33:52 2017
+
+Copyright (c) 1982, 2011, Oracle.  All rights reserved.
+
+
+
+Oracle Database 11g Enterprise Edition Release 11.2.0.3.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+に接続されました。
+SQL> -- 実行計画が作成されたSQLの合計数
+SQL> select count(*) from V$SQL where SQL_TEXT like 'select * from TAB36 where COL1=%' ;
+
+  COUNT(*)
+----------
+	 1
+
+SQL> exit 0
+Oracle Database 11g Enterprise Edition Release 11.2.0.3.0 - 64bit Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing optionsとの接続が切断されました。
