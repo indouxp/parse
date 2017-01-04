@@ -17,7 +17,7 @@ time ( date ; for i in `seq 1 10000`; do
                 echo "variable B1 number"
                 echo "execute :B1 := ${i}"
                 echo "select * from TAB36 where COL1=:B1 ;"
-              done | sqlplus TRY/TRY > /dev/null ; date )
+              done | sqlplus TRY/TRY > /dev/null ; date ) >> ${LOG:?} 2>&1
 
 cat <<EOT > ./sql.d/${BASE:?}.2.sql
 set echo on

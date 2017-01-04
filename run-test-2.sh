@@ -15,7 +15,7 @@ sqlplus / as sysdba @ ./sql.d/${BASE:?}.1.sql | tee ${LOG:?}
 # リテラルのSELECT文を10000回連続実行
 time ( date ; for i in `seq 1 10000`; do
                 echo "select * from TAB36 where COL1=${i} ;"
-              done | sqlplus TRY/TRY > /dev/null ; date )
+              done | sqlplus TRY/TRY > /dev/null ; date ) >> ${LOG:?} 2>&1
 
 cat <<EOT > ./sql.d/${BASE:?}.2.sql
 set echo on
